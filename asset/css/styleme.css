@@ -1,7 +1,32 @@
 .cicle_list{
     list-style-type: circle;
+    font-size: 1.5em;
+    font-style: italic;
+}
+.hobbies{
+    background-color: aliceblue;
+    font-family: Arial;
+    font-style: italic;
+    font-size: 0.8em;
+    list-style-type:upper-latin;
 }
 h2 {
     color: blue;
     font-family: 'Times New Roman', Times, serif;
+}
+p::first-letter {
+    font-size: 1.5em;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.movie_info {
+    list-style-type: circle;
+}
+h1 {
+    color:black;
 }
