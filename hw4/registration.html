@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<header>
+    <link href="style.css" rel="stylesheet">
+</header>
+<body>
+    <div class="top">
+        <p> Workshop Registration 
+            <select>
+                <option selected>More action</option>
+            </select>
+        </p>
+    </div>
+    <label class="underlined">Register now while seats are available!</label>
+    <form action="#" method="GET" class="register">
+        <div class="left_div">
+            <div>
+                <label>
+                    First Name <span style="color: red;">*</span>
+
+                </label>
+                <input type="text"name="firstname" required/>
+            </div>
+            <div>
+                <label>
+                    Last Name
+                    <span style="color: red;">*</span>
+                </label>
+                <input type="text" name="lastname" required/>
+            </div>
+            <div>
+                <label>
+                    Company/Institution
+                    <span style="color: red;">*</span>
+                </label>
+                <input type="text" name="company" required/>
+            </div>
+            <div>
+                <label>
+                    Address
+                    <span style="color: red;">*</span>
+                </label>
+                <textarea name="address" cols="16.5" rows="5" required>
+                
+                </textarea>
+            </div>
+            <div>
+                <label> Country</label>
+                <select>
+                    <option>-Select-</option>
+                    <option>USA</option>
+                    <option>France</option>
+                    <option>Senegal</option>
+                </select>
+            </div>
+            <div>
+                <label> City/Province/Region</label>
+                <select>
+                    <option>-Select-</option>
+                    <option>Iowa</option>
+                    <option>Texas</option>
+                    <option>California</option>
+                </select>
+            </div>
+            <div>
+                <label>
+                    Email
+                    <span style="color: red;">*</span>
+                </label>
+                <input type="text" pattern="[a-z0-9._+\-]+@[a-z0-9.\-]+\.[a-z]{2,3}" required/>
+            </div>    
+            <div>
+                <label>
+                    Phone Number
+                    <span style="color: red;">*</span>
+                </label>
+                <input type="text" pattern="[0-9+]{7, 15}" required/>
+            </div> 
+        </div>
+        <div class="right_div">
+            <div>
+                <label>Lunch</label>
+            </div>
+            <div>
+                <label>Meal Preference</label>
+                <select>
+                    <option selected>Vegetarian</option>
+                    <option>Tofu</option>
+                    <option>Eggs</option>
+                    <option>Cafe</option>
+                </select>
+            </div>
+            <div class="payment">
+                <label>Payment details</label>
+                <label>
+                    <input type="checkbox" name="cash" value="Cash"> Cash 
+                </label>
+                <label>
+                    <input type="checkbox" name="cheque" value="Cheque"> Cheque
+                </label>
+                <label>
+                    <input type="checkbox" name="demand" value="Demand Draft"> Demand Draft
+                </label>
+            </div>
+            <div>
+                <label>DD/Cheque No.</label>
+                <input type="text"/>
+            </div>
+            <div>
+                <label>Drawn on (Bank Name)</label>
+                <input type="text"/>
+            </div>
+            <div>
+                <label>Payable at</label>
+                <input type="text"/>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="submit">
+                <input type="submit"/>
+                <input type="reset"/>
+            </div>
+        </footer>
+        
+    </form>
+</body>

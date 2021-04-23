@@ -1,0 +1,72 @@
+.register {
+}
+.underlined {
+    text-decoration: underline;
+}
+
+.left_div {
+
+}
+
+.left_div {
+    width: 50%;
+    float: left;
+}
+
+form {
+    width: 90%;
+    /* background-color: aqua; */
+}
+
+div > * {
+    padding:5px;
+    margin: 5px;
+}
+select {
+    width: 150px;
+}
+label {
+    width: 300px;
+    display: inline-block;
+}
+
+input[type=checkbox] {
+    vertical-align: middle;
+    position: relative;
+    /* bottom: 1px; */
+}
+.payment > lable {
+    display: block;
+}
+
+.submit {
+    display: inline-block;
+}
+
+.submit {
+    color: aquamarine;
+}
+
+.top {
+    background-color: rgb(132, 167,152);;
+    height: 40px;
+    width: auto;
+    align-items: center;
+}
+
+.footer{
+    background-color:rgb(227, 227,227);
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    
+    }
+    
+    .submit input{
+    background-color: rgb(132, 167,152);
+    width: 100px;
+    color: white;
+    }
