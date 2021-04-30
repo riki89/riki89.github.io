@@ -81,26 +81,110 @@ Array.prototype.mySort = function() {
 
 //Use object literal and constructor function to implement a single LinkedList.
 //Object litteral
-linkedlist = {
-    values: [],
-    add: function(a){
-        this.values.push(a);
-    },
-    remove: function(a){
-        this.values.pop(a);
-    },
-    print: function(){
-        console.log(this.values);
-    }
-}
+let Node =  {
+    data:null,
+    next:null
+ }
  
+ let LinkedList = {
+   firstNode:null ,
+    lastNode:null,
+       size:null,
+ 
+   add:function(value){
+   
+   let newNode = Object.create(Node);
+    newNode.data = value;
+     if (this.firstNode == null) {
+       this.firstNode = newNode;
+       this.lastNode = newNode;
+     }
+     else {
+       this.lastNode.next = newNode;
+       this.lastNode = newNode;
+     }
+ 
+     this.size++;
+    
+   },
+ 
+     getSize : function() {
+     return this.size;
+   }
+   ,  
+    print : function() {
+ 
+    var currentNode = this.firstNode;
+       
+       result = 'Expected Result: LinkedList{';
+       
+       for (i = 0; currentNode != null; i++) {
+         if (i > 0) {
+           result += ',';
+         }
+         var dataObject = currentNode.data;
+         
+         result += (dataObject == null ? '' : dataObject);
+           currentNode = currentNode.next;
+       }
+       result += '}';
+       console.log(result) ;
+ 
+   },
+ 
+     remove : function(data) {
+     var currentNode = this.firstNode;
+         if (this.size == 0) {
+           return;
+         }
+                     
+         var deleted = false;
+         if (data == currentNode.data) {
+             if (currentNode.next == null) {
+               this.firstNode.data = null;
+               this.firstNode = null;
+               this.lastNode = null;
+               this.size--;
+               return;
+             }
+             
+           currentNode.data = null;
+           currentNode = currentNode.next; 
+           this.firstNode = currentNode;
+           this.size--;
+           return;
+         }
+ 
+           
+         while (true) {
+             if (currentNode == null) {
+               deleted = false;
+                 break;
+             }
+ 
+             var nextNode = currentNode.next;
+             if (nextNode != null) {
+                 if (data == nextNode.data) {
+                     var nextNextNode = nextNode.next;
+                     currentNode.next = nextNextNode;
+                     nextNode = null;
+                     deleted = true;
+                     break;
+                 }
+             }
+             currentNode = currentNode.next;
+         }
+         this.size--;
+   }
+ }
+ 
+let linkedlist = Object.create(LinkedList);
 linkedlist.add(1);
 linkedlist.add(2);
 linkedlist.add(3);
 linkedlist.print(); //Expected Result: LinkedList{1,2,3};
 linkedlist.remove(2);
-linkedlist.print(); //Expected Result: LinkedList{1,3};
-//
+linkedlist.print(); //Expected Result: LinkedList{1,3};//
 //using constructor function
 function LinkedList(){
     this.values = [];
@@ -122,4 +206,3 @@ linkedlist.print(); //Expected Result: LinkedList{1,2,3};
 linkedlist.remove(2);
 linkedlist.print(); //Expected Result: LinkedList{1,3};
 //
-
