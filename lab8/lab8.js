@@ -185,6 +185,7 @@ linkedlist.add(3);
 linkedlist.print(); //Expected Result: LinkedList{1,2,3};
 linkedlist.remove(2);
 linkedlist.print(); //Expected Result: LinkedList{1,3};//
+
 //using constructor function
 function LinkedList(){
     this.values = [];
@@ -206,3 +207,112 @@ linkedlist.print(); //Expected Result: LinkedList{1,2,3};
 linkedlist.remove(2);
 linkedlist.print(); //Expected Result: LinkedList{1,3};
 //
+//using constructor function
+function Node(){
+    this.data = null;
+    this.next = null;
+  }
+  
+  function LinkedList(){
+    this.firstNode = null;
+    this.lastNode = null;
+    this.size = 0;
+  
+  }
+  
+LinkedList.prototype.Add = function(data){
+    
+    var newNode = new Node();
+    newNode.data = data;
+
+    if (this.firstNode == null) {
+      this.firstNode = newNode;
+      this.lastNode = newNode;
+    }
+    else {
+      this.lastNode.next = newNode;
+      this.lastNode = newNode;
+    }
+
+    this.size++;
+}
+
+LinkedList.prototype.getSize = function(){
+  return this.size;
+}
+
+LinkedList.prototype.print = function(){
+  var currentNode = this.firstNode;
+      
+      result = 'Expected Result: LinkedList{';
+      
+      for (i = 0; currentNode != null; i++) {
+        if (i > 0) {
+          result += ',';
+        }
+        var dataObject = currentNode.data;
+        
+        result += (dataObject == null ? '' : dataObject);
+          currentNode = currentNode.next;
+      }
+      result += '}';
+  
+      console.log(result) ;
+}
+
+LinkedList.prototype.remove = function(data) {
+    var currentNode = this.firstNode;
+
+        if (this.size == 0) {
+          return;
+        }
+          
+        var wasDeleted = false;
+                          
+        if (data == currentNode.data) {     
+            if (currentNode.next == null) {
+              this.firstNode.data = null;
+              this.firstNode = null;
+              this.lastNode = null;
+              this.size--;
+              return;
+            } 
+          currentNode.data = null;
+          currentNode = currentNode.next; 
+          this.firstNode = currentNode;
+          this.size--;
+          return;
+        }
+          
+        while (true) {
+            if (currentNode == null) {
+              wasDeleted = false;
+                break;
+            }
+            var nextNode = currentNode.next;
+            if (nextNode != null) {
+                if (data == nextNode.data) {
+                    var nextNextNode = nextNode.next;
+                    currentNode.next = nextNextNode;
+                    
+                    nextNode = null;
+                    wasDeleted = true;
+                    break;
+                }
+            }
+            currentNode = currentNode.next;
+        }
+        if (wasDeleted) {
+          this.size--;
+        }
+  }
+
+
+let list = new LinkedList();
+list.Add(4);
+list.Add(11);
+list.Add(111);
+list.Add(99);
+list.remove(111);
+list.Add(44);
+list.print();
