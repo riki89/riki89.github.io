@@ -71,13 +71,26 @@ stud1.constructor.sort();
 //
 Array.prototype.mySort = function() { 
     return this.sort((a,b)=>{
-    return a.lastName > b.lastName ? 1:-1
+        return a.lastName > b.lastName ? 1:-1
     });
-    
-   }
-    
-   console.log(studs.mySort());
-
+}   
+console.log(studs.mySort());
+//version without Array
+Array.prototype.mysort = function(){
+  let arr = this;
+  let len = arr.length;
+  for (let i = len-1; i>=0; i--){
+    for (let j = 1; j<i; j++){
+      if(arr[j-1] > arr[j]){
+        let tmp = arr[j-1];
+        arr[j-1] = arr[j];
+        arr[j] = tmp; 
+      }
+    }
+  }
+  return arr;
+}
+console.log([7, 5, 2, 4, 3, 9].mySort2());
 
 //Use object literal and constructor function to implement a single LinkedList.
 //Object litteral
