@@ -97,26 +97,16 @@ class Student {
 class Quiz {
     constructor(questionsArray = [], students = []) {
         this.questions = new Map();
-        //TODO: add line to convert questionArray to Map questions
         questionsArray.forEach(question => this.questions.set(question.questionId, question.answer));
         this.students = students;
     }
 
     scoreStudent(studentId) {
-        //TODO: compute student score based on answers
         let student = this.students.filter(student => student.studentId === studentId)[0];
         return student.answers.reduce((sum, currentQuestion) => {
-            let questionId = currentQuestion.questionId; //find quesiton id
-            let correctAnswer = this.questions.get(questionId); //get correctAnswer from Map
-            let result = currentQuestion.checkAnswer(correctAnswer); //compare currentQuestion answer with correctAnswer
-            if (result) {
-                sum = sum + 1;
+            if(currentQuestion.checkAnswer(this.questions.get(currentQuestion.questionId))){
+              sum = sum + 1;
             }
-
-            // if(currentQuestion.checkAnswer(this.questions.get(currentQuestion.questionId))){
-            //   sum = sum + 1;
-            // }
-
             return sum;
         }, 0);
     }
@@ -124,7 +114,6 @@ class Quiz {
     getAverageScore() {
         return this.students.reduce((average, currentStudent, index, array) => average + this.scoreStudent(currentStudent.studentId) / array.length, 0);
     }
-
 }
 
 const student1 = new Student(10);
